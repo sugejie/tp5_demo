@@ -1,0 +1,7 @@
+.container .input {
+    margin: 5px auto;
+}
+.container .message {
+    color: red;
+    font-weight: bold;
+}

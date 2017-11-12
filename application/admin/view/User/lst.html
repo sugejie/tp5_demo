@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zn_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>UserList</title>
+    <!-- tp5引入静态资源 -->
+    {load file="__PUBLIC__/static/admin/js/jquery-2.1.4.css"}
+    {load file="__PUBLIC__/static/admin/js/bootstrap.min.js"}
+    {load file="__PUBLIC__/static/admin/css/bootstrap.min.css"}
+</head>
+<body>
+
+<div>
+    <a href="{:url('Index/index')}">首页</a>
+    <table>
+    {volist name="userlist", id="vo"}
+        <tr>
+            <td>{$vo.id}</td>
+            <td>{$vo.username}</td>
+            <td>{$vo.password}</td>
+            <td>{$vo.type}</td>
+            <td>
+                <a href="{:url('add', ['id'=>$vo.id])}">修改</a>
+            </td>
+            <td>
+                <a href="{:url('del', ['id'=>$vo.id])}">删除</a>
+            </td>
+        </tr>
+    {/volist}
+    </table>
+    {$userlist->render()}
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/admin/css/add.css" />
+</head>
+<body>
+<div class="container">
+    <a href="{:url('Index/index')}">首页</a>
+    <h1>Add</h1>
+    {if !empty($msg)}
+    <div class="message">{$msg}</div>
+    {/if}
+    <form action="" method="POST">
+        <div class="input">
+            <input type="text" name="username" value="{if !empty($user)}{$user.username}{/if}">
+        </div>
+        <div class="input">
+            <input type="text" name="password" value="{if !empty($user)}{$user.password}{/if}">
+        </div>
+        <div class="input">
+            <label>
+                <input type="radio" name="type" value="0" checked>普通用户
+            </label>
+            <label>
+                <input type="radio" name="type" value="1" {if !empty($user) && $user.type==1}checked{/if}>管理员
+            </label>
+        </div>
+        <input type="hidden" name="id" value="{if !empty($id)}{$id}{/if}">
+        <input type="submit" name="登陆">
+    </form>
+</div>
+</body>
+</html>

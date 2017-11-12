@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/admin/css/login.css" />
+</head>
+<body>
+<div class="container">
+    <h1>Login</h1>
+    {if !empty($msg)}
+    <div class="message">{$msg}</div>
+    {/if}
+    <form action="{:url('Login/index')}" method="POST">
+        <div class="input">
+            <input type="text" name="username" placeholder="username" {if !empty($user)}value="{$user.username}"{/if}>
+        </div>
+        <div class="input">
+            <input type="text" name="password" placeholder="password" {if !empty($user)}value="{$user.password}"{/if}>
+        </div>
+        <div class="input">
+            <input type="text" name="verifyCode" placeholder="verifyCode">
+            <img width="200px" src="{:captcha_src()}" alt="captcha" />
+        </div>
+        <input type="submit" name="登陆">
+    </form>
+</div>
+</body>
+</html>
